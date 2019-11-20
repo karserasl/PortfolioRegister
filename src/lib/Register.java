@@ -1,6 +1,7 @@
 package lib;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Register implements Iterable<Name> {
@@ -51,6 +52,11 @@ public class Register implements Iterable<Name> {
         return (int) reg.stream().filter(n -> n.getFirstName().endsWith(String.valueOf(c))).count();
     }
 
+    public void sortRegister() {
+
+        Collections.sort(reg);
+    }
+
     @Override
     public String toString() {
 
@@ -62,4 +68,5 @@ public class Register implements Iterable<Name> {
 
         return reg.iterator();
     }
+
 }

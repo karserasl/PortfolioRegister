@@ -142,29 +142,27 @@ public class RegisterTest {
         r.addName(new Name("Joe", "Bloggs"));
         r.addName(new Name("Fred", "Jones"));
 
-        assertTrue("First search should find Jones, i.e. return true", r.searchRegisterByFamilyName(new String("Jones"
-		)));
+        assertTrue("First search should find Jones, i.e. return true", r.searchRegisterByFamilyName("Jones"));
 
         r = new Register();
         r.addName(new Name("Joe", "Bloggs"));
         r.addName(new Name("Fred", "Wayne"));
 
         assertFalse("Second search should not find Jones, i.e. return false",
-				r.searchRegisterByFamilyName(new String("Jones")));
+                r.searchRegisterByFamilyName("Jones"));
 
         r = new Register();
         r.addName(new Name("Joe", "Bloggs"));
         r.addName(new Name("Fred", "Jones"));
 
-        assertTrue("Third search should find Bloggs, i.e. return true", r.searchRegisterByFamilyName(new String(
-        		"Bloggs")));
+        assertTrue("Third search should find Bloggs, i.e. return true", r.searchRegisterByFamilyName("Bloggs"));
 
         r = new Register();
         r.addName(new Name("Joe", "Woods"));
         r.addName(new Name("Fred", "Jones"));
 
         assertFalse("Fourth search should not find Bloggs, i.e. return false",
-				r.searchRegisterByFamilyName(new String("Bloggs")));
+                r.searchRegisterByFamilyName("Bloggs"));
     }
 
     @Test
@@ -213,9 +211,9 @@ public class RegisterTest {
         r.addName(new Name("Fred", "Bones"));
 
         //NOTE --- There is no assert or fail in this test because the for-each loop below will only work if the
-		// Register
+        // Register
         //         class implements Iterable correctly. Otherwise either a compilation error or runtime exception
-		//         will occur.
+        //         will occur.
 
         for (Name n : r) {
         }
@@ -234,7 +232,7 @@ public class RegisterTest {
         r.sortRegister();
 
         assertTrue("Elements should have been sorted based on the compareTo method of Name",
-				r.getName(0) == n3 && r.getName(1) == n1 && r.getName(2) == n2);
+                r.getName(0) == n3 && r.getName(1) == n1 && r.getName(2) == n2);
     }
 
 
@@ -247,9 +245,11 @@ public class RegisterTest {
 
         assertTrue("Modifiers cannot be assessed if no fields exist", fields.length > 0);
 
-        assertTrue("All fields must be private", Arrays.stream(fields).allMatch(f -> (Modifier.PRIVATE & f.getModifiers()) != 0));
+        assertTrue("All fields must be private",
+                Arrays.stream(fields).allMatch(f -> (Modifier.PRIVATE & f.getModifiers()) != 0));
 
-        assertTrue("No fields should be static", Arrays.stream(fields).allMatch(f -> (Modifier.STATIC & f.getModifiers()) == 0));
+        assertTrue("No fields should be static",
+                Arrays.stream(fields).allMatch(f -> (Modifier.STATIC & f.getModifiers()) == 0));
     }
 
     @Test
