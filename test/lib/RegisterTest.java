@@ -141,6 +141,7 @@ public class RegisterTest {
 
         r.addName(new Name("Joe", "Bloggs"));
         r.addName(new Name("Fred", "Jones"));
+        r.addName(new Name("Fred2", "Jones"));
 
         assertTrue("First search should find Jones, i.e. return true", r.searchRegisterByFamilyName("Jones"));
 
