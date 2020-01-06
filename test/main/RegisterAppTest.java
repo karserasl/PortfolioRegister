@@ -31,7 +31,7 @@ public class RegisterAppTest {
         Register r2 = new Register();
         r2.addName(new Name("Tim", "Russ"));
         r2.addName(new Name("David", "Blunt"));
-        r2.addName(new Name("Remi", "Patel"));
+        r2.addName(new Name("remi", "Patel"));
 
         String result2 = RegisterApp.execute(r2, new Name("Cassie", "Downturn"));
 
